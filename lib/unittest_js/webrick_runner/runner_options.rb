@@ -32,7 +32,7 @@ module UnittestJS
       def test_file_pattern
         "*#{test_file_suffix}"
       end
-
+      
       private
         def normalize_dir(dir, default)
           dir = File.join(test_dir, default) unless dir
