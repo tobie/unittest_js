@@ -1,11 +1,12 @@
 module UnittestJS
   module Builder
     class BuilderOptions
-      OUTPUT    = 'tmp'
-      ASSETS    = 'assets'
-      FIXTURES  = 'fixtures'
-      TEMPLATES = 'templates'
-      TESTS     = 'tests'
+      OUTPUT     = 'tmp'
+      ASSETS     = 'assets'
+      LIB_ASSETS = 'lib_assets'
+      FIXTURES   = 'fixtures'
+      TEMPLATES  = 'templates'
+      TESTS      = 'tests'
       
       def initialize(options = {})
         @options = options
@@ -33,6 +34,10 @@ module UnittestJS
       
       def output_assets_dir
         @output_assets_dir ||= DirPathname.new(output_dir, @options[:output_assets_dir_name] || ASSETS)
+      end
+      
+      def output_unittest_assets_dir
+        @output_unittest_assets_dir ||= DirPathname.new(output_dir, LIB_ASSETS)
       end
       
       def output_fixtures_dir

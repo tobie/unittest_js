@@ -10,12 +10,15 @@ module UnittestJS
       def copy_assets
         if @options.assets_dir.exists?
           assets = Dir[@options.assets_dir.join('*')]
+          @options.output_assets_dir.mk_and_stamp!
           FileUtils.cp_r(assets, @options.output_assets_dir)
         end
       end
       
       def copy_unittest_assets
-        unittest_assets_dir.copy_to(@options.output_assets_dir)
+        @options.output_unittest_assets_dir.mk_and_stamp!
+        assets = Dir[unittest_assets_dir.join('*')]
+        FileUtils.cp_r(assets, @options.output_unittest_assets_dir)
       end
       
       def unittest_assets_dir

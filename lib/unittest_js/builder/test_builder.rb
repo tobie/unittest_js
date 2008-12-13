@@ -35,7 +35,7 @@ module UnittestJS
       end
       
       def lib_files
-        assets = @options.output_assets_dir.name
+        assets = @options.output_unittest_assets_dir.name
         [
           to_script_tag("#{assets}/prototype.js"),
           to_script_tag("#{assets}/unittest.js"),
