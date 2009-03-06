@@ -63,6 +63,8 @@ module UnittestJS
               Browser::Opera.new
             when :chrome
               Browser::Chrome.new
+            when :webkit
+              Browser::WebKit.new
             else
               browser
           end
