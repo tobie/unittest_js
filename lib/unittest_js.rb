@@ -3,10 +3,10 @@ include FileUtils
 
 $:.unshift File.expand_path(File.join(File.dirname(__FILE__), 'unittest_js'))
 
-require 'dir_pathname'
-require 'builder'
-require 'webrick_runner'
-require 'browsers'
+require File.expand_path(File.join(File.dirname(__FILE__), 'unittest_js', 'dir_pathname'))
+require File.expand_path(File.join(File.dirname(__FILE__), 'unittest_js', 'builder'))
+require File.expand_path(File.join(File.dirname(__FILE__), 'unittest_js', 'webrick_runner'))
+require File.expand_path(File.join(File.dirname(__FILE__), 'unittest_js', 'browsers'))
 
 module UnittestJS
   TEMPLATES_DIR_NAME = 'templates'
