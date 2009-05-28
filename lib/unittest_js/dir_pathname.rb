@@ -4,6 +4,8 @@ module UnittestJS
     STAMP = '.unittest'
     
     alias :path :to_s
+    alias :to_str :to_s
+    
     def initialize(*args)
       args.map! { |a| a.to_s }
       super(File.expand_path(File.join(args)))
