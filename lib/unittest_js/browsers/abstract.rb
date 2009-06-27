@@ -33,7 +33,24 @@ module UnittestJS
 
       def applescript(script)
         raise "Can't run AppleScript on #{host}" unless macos?
-        system "osascript -e '#{script}' 2>&1 >/dev/null"
+        `osascript -s o -e '#{script}' 2>&1`
+      end
+      
+      def installed?
+        if macos?
+          # if anyone has a simpler solution for this... input welcomed.
+          applescript('exists application "' + app_name + '"') =~ /^true/
+        else
+          true #TODO
+        end
+      end
+      
+      def app_name
+        self.class.name.split('::').last
+      end
+      
+      def to_s
+        app_name
       end
     end
   end

@@ -22,10 +22,8 @@ namespace :test do
       end
     end
     
-    UnittestJS::Browser::SUPPORTED.each do |browser|
-      unless browsers_to_test && !browsers_to_test.include?(browser)
+    (browsers_to_test || UnittestJS::Browser::SUPPORTED).each do |browser|
         runner.add_browser(browser.to_sym)
-      end
     end
     
     trap('INT') { runner.teardown; exit }

@@ -20,10 +20,7 @@ module UnittestJS
       def visit(url)
         system("#{@path} #{url}")
       end
-
-      def to_s
-        "Chrome"
-      end
     end
   end
 end
+

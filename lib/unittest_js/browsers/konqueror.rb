@@ -32,10 +32,6 @@ module UnittestJS
       def visit(url)
         system("kfmclient openURL #{url}")
       end
-
-      def to_s
-        "Konqueror"
-      end
     end
   end
 end

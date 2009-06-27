@@ -4,8 +4,8 @@ require 'abstract'
 
 module UnittestJS
   module Browser
-    SUPPORTED = %w[chrome firefox ie konqueror opera safari webkit].freeze
+    SUPPORTED = %w[chrome firefox ie konqueror opera webkit safari].freeze
   end
 end
 
-UnittestJS::Browser::SUPPORTED.each{ |browser| require browser }
+UnittestJS::Browser::SUPPORTED.each { |browser| require browser }

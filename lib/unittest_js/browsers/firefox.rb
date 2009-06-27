@@ -10,10 +10,6 @@ module UnittestJS
         system("#{@path} #{url}") if windows? 
         system("firefox #{url}") if linux?
       end
-
-      def to_s
-        "Firefox"
-      end
     end
   end
 end

@@ -22,10 +22,6 @@ module UnittestJS
         system("#{@path} #{url}") if windows? 
         system("opera #{url}")  if linux?
       end
-
-      def to_s
-        "Opera"
-      end
     end
   end
 end

@@ -55,6 +55,20 @@ module UnittestJS
               Browser::Firefox.new
             when :safari
               Browser::Safari.new
+            when :safari20, :safari200
+              Browser::Safari.new('2.0')
+            when :safari202
+              Browser::Safari.new('2.0.2')
+            when :safari203
+              Browser::Safari.new('2.0.3')
+            when :safari204
+              Browser::Safari.new('2.0.4')
+            when :safari304
+              Browser::Safari.new('3.0.4')
+            when :safari312
+              Browser::Safari.new('3.1.2')
+            when :safari321
+              Browser::Safari.new('3.2.1')
             when :ie
               Browser::IE.new
             when :konqueror
