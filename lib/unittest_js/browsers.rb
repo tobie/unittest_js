@@ -4,7 +4,7 @@ require 'abstract'
 
 module UnittestJS
   module Browser
-    SUPPORTED = %w[chrome firefox ie konqueror opera webkit safari].freeze
+    SUPPORTED = %w[chrome chromium firefox ie konqueror opera webkit safari].freeze
   end
 end
 

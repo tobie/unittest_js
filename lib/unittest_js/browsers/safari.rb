@@ -9,7 +9,7 @@ module UnittestJS
         macos? && installed?
       end
       
-      def app_name
+      def name
         @version ? "Safari #{@version}" : 'Safari'
       end
     end

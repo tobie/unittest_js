@@ -16,12 +16,6 @@ module UnittestJS
           }
         end
       end
-
-      def visit(url)
-        applescript('tell application "Opera" to GetURL "' + url + '"') if macos? 
-        system("#{@path} #{url}") if windows? 
-        system("opera #{url}")  if linux?
-      end
     end
   end
 end

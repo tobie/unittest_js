@@ -11,9 +11,6 @@ module UnittestJS
       def teardown
       end
 
-      def open(url)
-      end
-
       def host
         require 'rbconfig'
         Config::CONFIG['host']
@@ -30,27 +27,40 @@ module UnittestJS
       def linux?
         host.include?('linux')
       end
-
-      def applescript(script)
-        raise "Can't run AppleScript on #{host}" unless macos?
-        `osascript -s o -e '#{script}' 2>&1`
+      
+      def visit(url)
+        if macos?
+          system("open -g -a '#{name}' '#{url}'")
+        elsif windows?
+          system("#{path} #{url}")
+        elsif linux?
+          system("#{name} #{url}")
+        end
       end
       
       def installed?
         if macos?
-          # if anyone has a simpler solution for this... input welcomed.
-          applescript('exists application "' + app_name + '"') =~ /^true/
+          File.exists?(path)
         else
           true #TODO
         end
       end
       
-      def app_name
-        self.class.name.split('::').last
+      def name
+        n = self.class.name.split('::').last
+        linux? ? n.downcase : n
+      end
+      
+      def path
+        if macos?
+          File.expand_path("/Applications/#{name}.app")
+        else
+          @path
+        end
       end
       
       def to_s
-        app_name
+        name
       end
     end
   end

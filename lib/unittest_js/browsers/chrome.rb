@@ -14,11 +14,11 @@ module UnittestJS
       end
 
       def supported?
-        windows?
+        windows? || macos?
       end
-
-      def visit(url)
-        system("#{@path} #{url}")
+      
+      def name
+        'Google Chrome'
       end
     end
   end
