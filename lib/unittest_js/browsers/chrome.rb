@@ -3,7 +3,7 @@ module UnittestJS
     class Chrome < Abstract
       def initialize(path = nil)
         @path = path || File.join(
-          ENV['UserPath'] || "C:/Documents and Settings/Administrator",
+          ENV['UserPath'] || ENV['UserProfile'] || "C:/Documents and Settings/Administrator",
           "Local Settings",
           "Application Data",
           "Google",
