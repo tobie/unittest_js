@@ -30,7 +30,7 @@ module UnittestJS
       
       def visit(url)
         if macos?
-          system("open -g -a '#{name}' '#{url}'")
+          system("open -g -a #{path} '#{url}'")
         elsif windows?
           system("#{path} #{url}")
         elsif linux?
@@ -51,9 +51,13 @@ module UnittestJS
         linux? ? n.downcase : n
       end
       
+      def escaped_name
+        name.gsub(' ', '\ ')
+      end
+      
       def path
         if macos?
-          File.expand_path("/Applications/#{name}.app")
+          File.expand_path("/Applications/#{escaped_name}.app")
         else
           @path
         end
