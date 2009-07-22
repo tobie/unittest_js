@@ -42,7 +42,7 @@ module UnittestJS
       end
       
       def to_s
-        exists? ? to_link_tag(rel_filepath) : ''
+        exists? ? link_tag(rel_filepath) : ''
       end
     end
   
@@ -52,7 +52,7 @@ module UnittestJS
       end
       
       def to_s
-        exists? ? to_script_tag(rel_filepath) : ''
+        exists? ? script_tag(rel_filepath) : ''
       end
     end
   end

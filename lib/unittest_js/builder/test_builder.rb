@@ -27,7 +27,7 @@ module UnittestJS
       end
       
       def test_file
-        to_script_tag("#{@options.output_tests_dir.name}/#{filename}")
+        script_tag("#{@options.output_tests_dir.name}/#{filename}")
       end
       
       def timestamp
@@ -37,9 +37,9 @@ module UnittestJS
       def lib_files
         assets = @options.output_unittest_assets_dir.name
         [
-          to_script_tag("#{assets}/prototype.js"),
-          to_script_tag("#{assets}/unittest.js"),
-          to_link_tag("#{assets}/unittest.css")
+          script_tag("#{assets}/prototype.js"),
+          script_tag("#{assets}/unittest.js"),
+          link_tag("#{assets}/unittest.css")
         ].join("\n")
       end
       
