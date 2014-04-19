@@ -91,6 +91,7 @@ module UnittestJS
       private
         def mount_default_servlets
           @server.mount('/results', Servlet::Result, @queue)
+          @server.mount('/list', Servlet::TestList, :tests => @tests)
           Dir.chdir(@options.test_dir.join('..')) do
             mount('/')
             mount("/#{@options.test_dir.name}")
