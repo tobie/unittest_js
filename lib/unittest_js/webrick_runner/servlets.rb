@@ -6,6 +6,7 @@ require 'down'
 require 'inspection'
 require 'file_handler'
 require 'result'
+require 'test_list'
 
 module UnittestJS
   module WEBrickRunner
